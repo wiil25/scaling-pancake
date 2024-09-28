@@ -7,7 +7,7 @@ def test_root():
 
 
 def test_funcaoteste():
-    with patch('random.randint', return_value=12345):
+    with patch('src.main.random.randint', return_value=12345):
         result = funcaoteste()
 
     assert result == {"teste": True, "num_aleatorio": 12345}
