@@ -34,20 +34,14 @@ jobs:
           context: .
           push: false
           tags: user/app:latest
-  #discord:
-   # runs-on: ubuntu-latest
-    #steps:
-
-    #- uses: actions/checkout@v4
-    #- name: Run Discord Webhook
-      #uses: johnnyhuy/actions-discord-git-webhook@main
-      #with:
-        #webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
-
-discord:
-    runs-on: "ubuntu-latest"
+  discord:
+    runs-on: ubuntu-latest
     steps:
-      - uses: "hugoalh/send-discord-webhook-ghaction@v7.0.0"
-        with:
-          key: "${{secrets.DISCORD-WEBHOOK}}"
-          content: "Hello, world!"
+
+    - uses: actions/checkout@v4
+    - name: Run Discord Webhook
+      uses: Sniddl/discord-commits@v1.6
+      with:
+        webhook: ${{ secrets.DISCORD_WEBHOOK }}
+        template: "avatar-with-link"
+        include-extras: true
