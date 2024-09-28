@@ -1,0 +1,23 @@
+name: Discord
+
+on:
+  - push
+
+jobs:
+  discord_test_message:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Discord Webhook
+        uses: Sniddl/discord-commits@v1.6
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          template: "avatar-with-link"
+          include-extras: true
+    #name: discord commits
+    #steps:
+     # - name: Checkout
+      #  uses: action/checkout@v3
+
+      #- name: Send message to discord
+       # uses: ./ # Uses an action in the rppt directory
