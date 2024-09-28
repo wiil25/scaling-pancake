@@ -46,4 +46,5 @@ jobs:
         run: |
           pip install pytest pytest-cov
           cd test
-          pytest test.py --doctest-modules --junitxml=../junit/test-results.xml --cov=../src --cov-report=xml --cov-report=html
+          # Adiciona o diretório src ao PYTHONPATH
+          PYTHONPATH=../src pytest test.py --doctest-modules --junitxml=../junit/test-results.xml --cov=../src --cov-report=xml --cov-report=html
