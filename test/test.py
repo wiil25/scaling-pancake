@@ -5,7 +5,7 @@ from unittest.mock import patch
 
 
 def test_root():
-    result = root():
+    result = root()
     yield result
     assert result == {"message": "Hello World"}
 
